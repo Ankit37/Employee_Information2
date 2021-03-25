@@ -44,5 +44,20 @@ public class EmployeeInformation2Controller {
 
 		return employeeInformation;
 	}
+	
+	
+	//Reutrning only name
+	@GetMapping("/employeeinformation/alluser/user/name/{id}")
+	public String getUserByName(@PathVariable int id) {
+		int URIid = id;
+		ResponseEntity<EmployeeInformation> responseEntity = new RestTemplate()
+				.getForEntity("http://localhost:5000/id/{id}", EmployeeInformation.class, URIid);
+
+		EmployeeInformation body = responseEntity.getBody();
+		body.setAge(23);
+		EmployeeInformation employeeInformation = new EmployeeInformation(body.getName());
+
+		return body.getName();
+	}
 
 }

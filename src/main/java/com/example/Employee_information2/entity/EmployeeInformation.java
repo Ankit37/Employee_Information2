@@ -21,6 +21,15 @@ private Integer id;
 
 	public EmployeeInformation() {}
 	
+	
+	
+	public EmployeeInformation(String name) {
+		super();
+		Name = name;
+	}
+
+
+
 	public EmployeeInformation(Integer id, String name, String status, String from, String to, int i) {
 		super();
 		this.id = id;
